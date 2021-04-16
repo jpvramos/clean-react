@@ -1,7 +1,12 @@
+// 20210416171251
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,7 +21,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
