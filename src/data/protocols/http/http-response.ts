@@ -4,10 +4,10 @@ export enum HttpStatusCode {
   badRequest = 400,
   unathorized = 401,
   notFound = 404,
-  serverError = 500
+  serverError = 500,
 }
 
-export type HttpResponse = {
-  statusCode: HttpStatusCode
-  body?: any
-}
+export type HttpResponse<T> = {
+  statusCode: HttpStatusCode;
+  body?: T;
+};
