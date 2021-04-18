@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     'standard-with-typescript',
-    'plugin:react/recommend'
+    'plugin:react/recommended'
   ],
   plugins: ['react'],
   parserOptions: {
