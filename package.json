@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/jpvramos/clean-react#readme",
   "devDependencies": {
+    "@testing-library/react": "^11.2.6",
     "@types/axios": "^0.14.0",
     "@types/faker": "^5.5.1",
     "@types/jest": "^26.0.22",
