@@ -4,20 +4,20 @@ import { Footer, Input, LoginHeader, FormStatus } from '@/presentation/component
 import { Context } from '@/presentation/contexts'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-type StateProps = {
-  isLoading: boolean
-  errorMessage: string
-}
 
 const Login: React.FC = () => {
-  const [state] = React.useState<StateProps>({
-    isLoading: false,
-    errorMessage: ''
+  const [state] = React.useState({
+    isLoading: false
+  })
+  const [errorState] = React.useState({
+    main: '',
+    email: 'Campo Obrigatório',
+    password: 'Campo Obrigatório'
   })
   return (
     <div className={Styles.login}>
       <LoginHeader />
-      <Context.Provider value={state}>
+      <Context.Provider value={ { state, errorState }}>
       <form className={Styles.form}>
         <h2>Login</h2>
         <Input type="email" name="email" placeholder="Digite seu email" />
