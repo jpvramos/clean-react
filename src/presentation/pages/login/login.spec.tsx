@@ -1,7 +1,8 @@
 import React from 'react'
 import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
 import Login from './login'
-import { ValidationSpy } from '@/presentation/test/mock-validation'
+import { ValidationSpy } from '@/presentation/test'
+import faker from 'faker'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type SutTypes = {
@@ -37,14 +38,16 @@ describe('Login Component', () => {
   test('Should call Validation with correct email', () => {
     const { sut, validationSpy } = makeSut()
     const emailInput = sut.getByTestId('email')
-    fireEvent.input(emailInput, { target: { value: 'any_email' } })
+    const email = faker.internet.email()
+    fireEvent.input(emailInput, { target: { value: email } })
     expect(validationSpy.fieldName).toBe('email')
     expect(validationSpy.fieldValue).toBe('any_email')
   })
   test('Should call Validation with correct password', () => {
     const { sut, validationSpy } = makeSut()
+    const password = faker.internet.password()
     const passwordInput = sut.getByTestId('password')
-    fireEvent.input(passwordInput, { target: { value: 'any_password' } })
+    fireEvent.input(passwordInput, { target: { value: password } })
     expect(validationSpy.fieldName).toBe('password')
     expect(validationSpy.fieldValue).toBe('any_password')
   })
