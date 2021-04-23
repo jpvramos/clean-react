@@ -46,7 +46,7 @@ const populatePasswordField = (sut: RenderResult, password: string = faker.inter
 const simulateStatusForField = (sut: RenderResult, fieldName: string, validationError?: string): void => {
   const status = sut.getByTestId(`${fieldName}-status`)
   expect(status.title).toBe(validationError || 'Tudo certo!')
-  expect(status.textContent).toBe(validationError ? '◎' :  '◉')
+  expect(status.textContent).toBe(validationError ? '◎' : '◉')
 }
 
 describe('Login Component', () => {
@@ -112,5 +112,13 @@ describe('Login Component', () => {
       email,
       password
     })
+  })
+
+  test('Should call Authentication only once', () => {
+    const { sut, authenticationSpy } = makeSut()
+    simulateValidSubmit(sut)
+    simulateValidSubmit(sut)
+
+    expect(authenticationSpy.callsCount).toBe(1)
   })
 })
