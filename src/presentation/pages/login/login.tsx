@@ -4,6 +4,7 @@ import { Footer, Input, LoginHeader, FormStatus } from '@/presentation/component
 import { Context } from '@/presentation/contexts'
 import { Validation } from '@/presentation/protocols/validations'
 import { Authentication } from '@/domain/usecases'
+import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type Props = {
@@ -59,7 +60,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
         <Input type="email" name="email" placeholder="Digite seu email" />
         <Input type="password" name="password" placeholder="Digite sua senha" />
         <button data-testid="submit" disabled={ !!state.emailError || !!state.passwordError } className={Styles.submit} type="submit">Entrar</button>
-        <span className={Styles.link}>Criar Conta</span>
+        <Link data-testid="signup" to="/signup" className={Styles.link}>Criar Conta</Link>
         <FormStatus />
       </form>
       <Footer />
