@@ -1,22 +1,9 @@
-import { FieldValidation } from '@/validation/protocols/field-validation'
-
-class InvalidFieldError extends Error {
-  constructor () {
-    super('Campo Obrigatório')
-    this.name = 'InvalidFieldError'
-  }
-}
-
-class EmailValidation implements FieldValidation {
-  field: string
-  validate (value: string): Error {
-    return new InvalidFieldError()
-  }
-}
+import { InvalidFieldError } from '@/validation/errors/invalid-field-error'
+import { EmailValidation } from '@/validation/validators/email/email-validation'
 
 describe('EmailValidation', () => {
   test('Should return error if email', () => {
-    const sut = new EmailValidation()
+    const sut = new EmailValidation('email')
     const error = sut.validate('')
     expect(error).toEqual(new InvalidFieldError())
   })
