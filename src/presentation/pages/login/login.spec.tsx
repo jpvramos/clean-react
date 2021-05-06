@@ -1,6 +1,6 @@
 import React from 'react'
 import { cleanup, fireEvent, render, RenderResult, waitFor } from '@testing-library/react'
-import Login from './login'
+import { Login } from '@/presentation/pages'
 import { AuthenticationSpy, ValidationStub } from '@/presentation/test'
 import faker from 'faker'
 import 'jest-localstorage-mock'

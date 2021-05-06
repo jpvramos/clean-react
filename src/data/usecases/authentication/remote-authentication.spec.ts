@@ -3,7 +3,7 @@ import { AccountModel } from '@/domain/models'
 import { AuthenticationParams } from '@/domain/usecases/authetication'
 import { UnexpectedError, InvalidCredentialsError } from '@/domain/usecases/errors'
 import { HttpPostClientSpy } from '@/data/test'
-import { RemoteAuthentication } from './remote-authentication'
+import { RemoteAuthentication } from '@/data/usecases/authentication'
 import faker from 'faker'
 import { HttpStatusCode } from '@/data/protocols/http'
 
